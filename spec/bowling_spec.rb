@@ -42,4 +42,10 @@ RSpec.describe "#score" do
 
     expect(@game.score).to eq 24
   end
+
+  it "should score 300 points for a perfect game" do
+    roll_many 12, 10
+
+    expect(@game.score).to eq 300
+  end
 end
