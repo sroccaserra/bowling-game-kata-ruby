@@ -5,6 +5,11 @@ RSpec.describe "#score" do
     nb_rolls.times { @game.roll knocked_pins }
   end
 
+  def roll_spare
+    @game.roll 5
+    @game.roll 5
+  end
+
   before(:each) do
     @game = Game.new
   end
@@ -22,8 +27,7 @@ RSpec.describe "#score" do
   end
 
   it "should score 16 points for a spare and a 3" do
-    @game.roll 5
-    @game.roll 5
+    roll_spare
     @game.roll 3
     roll_many 17, 0
 
