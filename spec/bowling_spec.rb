@@ -10,6 +10,10 @@ RSpec.describe "#score" do
     @game.roll 5
   end
 
+  def roll_strike
+    @game.roll 10
+  end
+
   before(:each) do
     @game = Game.new
   end
@@ -35,7 +39,7 @@ RSpec.describe "#score" do
   end
 
   it "should score 24 points for a strike, a 3 and a 4" do
-    @game.roll 10
+    roll_strike
     @game.roll 3
     @game.roll 4
     roll_many 16, 0
