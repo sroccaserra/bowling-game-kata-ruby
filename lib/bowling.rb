@@ -11,18 +11,19 @@ class Game
 
   def score
     sum = 0
+    frame_index = 0
     10.times do
-      |frame_index|
-      i = 2*frame_index
-      first_roll = @rolls[i]
-      second_roll = @rolls[i + 1]
+      first_roll = @rolls[frame_index]
+      second_roll = @rolls[frame_index + 1]
 
       if 10 == first_roll + second_roll
         sum += 10
-        sum += @rolls[i + 2]
+        sum += @rolls[frame_index + 2]
       else
         sum += first_roll + second_roll
       end
+
+      frame_index += 2
     end
 
     sum
