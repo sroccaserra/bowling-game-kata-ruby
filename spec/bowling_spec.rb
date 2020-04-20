@@ -20,4 +20,13 @@ RSpec.describe "#score" do
 
     expect(@game.score).to eq 20
   end
+
+  it "should score 16 points for a spare and a 3" do
+    @game.roll 5
+    @game.roll 5
+    @game.roll 3
+    roll_many 17, 0
+
+    expect(@game.score).to eq 16
+  end
 end
