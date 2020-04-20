@@ -20,11 +20,10 @@ class Game
         sum += 10 + spare_bonus(frame_index)
         frame_index += 2
       else
-        sum += @rolls[frame_index] + @rolls[frame_index + 1]
+        sum += nb_knocked_pins(frame_index)
         frame_index += 2
       end
     end
-
     sum
   end
 
@@ -44,5 +43,9 @@ class Game
 
   def spare_bonus(frame_index)
     @rolls[frame_index + 2]
+  end
+
+  def nb_knocked_pins(frame_index)
+    @rolls[frame_index] + @rolls[frame_index + 1]
   end
 end
