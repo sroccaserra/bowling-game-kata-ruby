@@ -13,19 +13,22 @@ class Game
     sum = 0
     frame_index = 0
     10.times do
-      first_roll = @rolls[frame_index]
-      second_roll = @rolls[frame_index + 1]
-
-      if 10 == first_roll + second_roll
+      if is_spare(frame_index)
         sum += 10
         sum += @rolls[frame_index + 2]
       else
-        sum += first_roll + second_roll
+        sum += @rolls[frame_index] + @rolls[frame_index + 1]
       end
 
       frame_index += 2
     end
 
     sum
+  end
+
+  private
+
+  def is_spare(frame_index)
+    10 == @rolls[frame_index] + @rolls[frame_index + 1]
   end
 end
