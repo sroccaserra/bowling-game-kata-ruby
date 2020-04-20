@@ -14,12 +14,10 @@ class Game
     frame_index = 0
     10.times do
       if is_strike?(frame_index)
-        sum += 10
-        sum += @rolls[frame_index + 1] + @rolls[frame_index + 2]
+        sum += 10 + strike_bonus(frame_index)
         frame_index += 1
       elsif is_spare?(frame_index)
-        sum += 10
-        sum += @rolls[frame_index + 2]
+        sum += 10 + spare_bonus(frame_index)
         frame_index += 2
       else
         sum += @rolls[frame_index] + @rolls[frame_index + 1]
@@ -38,5 +36,13 @@ class Game
 
   def is_spare?(frame_index)
     10 == @rolls[frame_index] + @rolls[frame_index + 1]
+  end
+
+  def strike_bonus(frame_index)
+    @rolls[frame_index + 1] + @rolls[frame_index + 2]
+  end
+
+  def spare_bonus(frame_index)
+    @rolls[frame_index + 2]
   end
 end
