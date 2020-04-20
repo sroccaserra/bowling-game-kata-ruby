@@ -17,7 +17,7 @@ class Game
         sum += 10
         sum += @rolls[frame_index + 1] + @rolls[frame_index + 2]
         frame_index += 1
-      elsif is_spare(frame_index)
+      elsif is_spare?(frame_index)
         sum += 10
         sum += @rolls[frame_index + 2]
         frame_index += 2
@@ -36,7 +36,7 @@ class Game
     10 == @rolls[frame_index]
   end
 
-  def is_spare(frame_index)
+  def is_spare?(frame_index)
     10 == @rolls[frame_index] + @rolls[frame_index + 1]
   end
 end
