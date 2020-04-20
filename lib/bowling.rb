@@ -13,14 +13,18 @@ class Game
     sum = 0
     frame_index = 0
     10.times do
-      if is_spare(frame_index)
+      if 10 == @rolls[frame_index]
+        sum += 10
+        sum += @rolls[frame_index + 1] + @rolls[frame_index + 2]
+        frame_index += 1
+      elsif is_spare(frame_index)
         sum += 10
         sum += @rolls[frame_index + 2]
+        frame_index += 2
       else
         sum += @rolls[frame_index] + @rolls[frame_index + 1]
+        frame_index += 2
       end
-
-      frame_index += 2
     end
 
     sum
