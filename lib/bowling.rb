@@ -1,13 +1,13 @@
 class Game
   def initialize
-    @sum = 0
+    @rolls = []
   end
 
   def roll(knocked_pins)
-    @sum += knocked_pins
+    @rolls << knocked_pins
   end
 
   def score
-    @sum
+    @rolls.sum
   end
 end
